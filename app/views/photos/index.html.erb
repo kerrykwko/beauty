@@ -17,9 +17,21 @@
 
       <% @photos.each do |photo| %>
       <tr>
-        <td><%= photo.skintone.color %></td>
+        <td>
+          <% if photo.skintone.present? %>
+            <a href="/skintones/<%= photo.skintone.id %>">
+              <%= photo.skintone.color %>
+            </a>
+          <% end %>
+        </td>
         <td><img src='<%= photo.image %>' class='img-responsive'></td>
-        <td><%= photo.product.brand %></td>
+        <td>
+          <% if photo.product.present? %>
+            <a href="/products/<%= photo.product.id %>">
+              <%= photo.product.brand %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/photos/<%= photo.id %>" class="btn btn-primary">Show</a>
           <a href="/photos/<%= photo.id %>/edit" class="btn btn-warning">Edit</a>

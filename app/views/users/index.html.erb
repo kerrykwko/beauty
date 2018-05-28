@@ -19,7 +19,13 @@
       <tr>
         <td><%= user.email %></td>
         <td><%= user.password %></td>
-        <td><%= user.skintone.color %></td>
+        <td>
+          <% if user.skintone.present? %>
+            <a href="/skintones/<%= user.skintone.id %>">
+              <%= user.skintone.color %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/users/<%= user.id %>" class="btn btn-primary">Show</a>
         </td>

@@ -12,7 +12,13 @@
       <dd><%= @user.password %></dd>
 
       <dt>Skintone</dt>
-      <dd><%= @user.skintone_id %></dd>
+      <dd>
+        <% if @user.skintone.present? %>
+          <a href="/skintones/<%= @user.skintone_id %>">
+            <%= @user.skintone.color %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

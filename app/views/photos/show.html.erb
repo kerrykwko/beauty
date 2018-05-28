@@ -6,13 +6,25 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Skintone</dt>
-      <dd><%= @photo.skintone_id %></dd>
+      <dd>
+        <% if @photo.skintone.present? %>
+          <a href="/skintones/<%= @photo.skintone_id %>">
+            <%= @photo.skintone.color %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Image</dt>
       <dd><img src="<%= @photo.image %>" class="img-responsive"></dd>
 
       <dt>Product</dt>
-      <dd><%= @photo.product_id %></dd>
+      <dd>
+        <% if @photo.product.present? %>
+          <a href="/products/<%= @photo.product_id %>">
+            <%= @photo.product.brand %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 
