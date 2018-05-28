@@ -6,6 +6,8 @@ class SkintonesController < ApplicationController
   end
 
   def show
+    @photo = Photo.new
+    @user = User.new
     @skintone = Skintone.find(params[:id])
 
     render("skintones/show.html.erb")

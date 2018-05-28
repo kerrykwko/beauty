@@ -6,6 +6,8 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @like = Like.new
+    @photo = Photo.new
     @product = Product.find(params[:id])
 
     render("products/show.html.erb")
