@@ -1,0 +1,55 @@
+<!-- Validation failure messages -->
+<% if @product.errors.any? %>
+  <% @product.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Product</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_product" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for brand -->
+      <div class="form-group">
+        <label for="brand" class="control-label">
+          Brand
+        </label>
+
+        <input type="text" id="brand" name="brand" placeholder="Brand" class="form-control" value="<%= @product.brand %>">
+      </div>
+
+      <!-- Label and input for item -->
+      <div class="form-group">
+        <label for="item" class="control-label">
+          Item
+        </label>
+
+        <input type="text" id="item" name="item" placeholder="Item" class="form-control" value="<%= @product.item %>">
+      </div>
+
+      <!-- Label and input for shade -->
+      <div class="form-group">
+        <label for="shade" class="control-label">
+          Shade
+        </label>
+
+        <input type="text" id="shade" name="shade" placeholder="Shade" class="form-control" value="<%= @product.shade %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Product
+      </button>
+      or
+      <a href="/products">Cancel</a>
+    </form>
+  </div>
+</div>
