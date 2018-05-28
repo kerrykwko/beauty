@@ -17,7 +17,7 @@
 
       <% @photos.each do |photo| %>
       <tr>
-        <td><%= photo.skintone_id %></td>
+        <td><%= photo.skintone.color %></td>
         <td><%= photo.image %></td>
         <td><%= photo.product_id %></td>
         <td>
