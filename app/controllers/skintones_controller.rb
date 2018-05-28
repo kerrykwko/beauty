@@ -1,6 +1,6 @@
 class SkintonesController < ApplicationController
   def index
-    @skintones = Skintone.all
+    @skintones = Skintone.page(params[:page]).per(10)
 
     render("skintones/index.html.erb")
   end
