@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Skintone resource:
+  # CREATE
+  get "/skintones/new", :controller => "skintones", :action => "new"
+  post "/create_skintone", :controller => "skintones", :action => "create"
+
+  # READ
+  get "/skintones", :controller => "skintones", :action => "index"
+  get "/skintones/:id", :controller => "skintones", :action => "show"
+
+  # UPDATE
+  get "/skintones/:id/edit", :controller => "skintones", :action => "edit"
+  post "/update_skintone/:id", :controller => "skintones", :action => "update"
+
+  # DELETE
+  get "/delete_skintone/:id", :controller => "skintones", :action => "destroy"
+  #------------------------------
+
   devise_for :users
   # Routes for the User resource:
   # READ
