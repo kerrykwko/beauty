@@ -24,7 +24,7 @@
           Skintone
         </label>
 
-        <input type="text" id="skintone_id" name="skintone_id" placeholder="Skintone" class="form-control" value="<%= @photo.skintone_id %>">
+        <%= select_tag(:skintone_id, options_from_collection_for_select(Skintone.all, :id, :color, @photo.skintone_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for image -->
