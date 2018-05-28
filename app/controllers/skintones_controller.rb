@@ -1,6 +1,7 @@
 class SkintonesController < ApplicationController
   def index
-    @skintones = Skintone.page(params[:page]).per(10)
+    @q = Skintone.ransack(params[:q])
+    @skintones = @q.result(:distinct => true).includes(:users, :photos).page(params[:page]).per(10)
 
     render("skintones/index.html.erb")
   end
